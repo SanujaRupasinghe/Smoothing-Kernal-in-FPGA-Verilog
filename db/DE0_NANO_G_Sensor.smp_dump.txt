@@ -1,0 +1,7 @@
+
+State Machine - |DE0_NANO_G_Sensor|uart:u_uart|transmitter:uart_Tx|state
+Name state.TX_STATE_STOP state.TX_STATE_DATA state.TX_STATE_START state.TX_STATE_IDLE 
+state.TX_STATE_IDLE 0 0 0 0 
+state.TX_STATE_START 0 0 1 1 
+state.TX_STATE_DATA 0 1 0 1 
+state.TX_STATE_STOP 1 0 0 1 
