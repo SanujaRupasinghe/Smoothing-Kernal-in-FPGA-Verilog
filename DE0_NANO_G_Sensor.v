@@ -97,7 +97,8 @@ wire	        dly_rst;
 wire	        spi_clk, spi_clk_out;
 wire	[15:0]  data_x;
 wire          clock_intermediate;
-wire  [7: 0]  data_intermediate;
+wire  [7: 0]  data_intermediate_from_led_driver;
+wire  [7: 0]  data_intermediate_from_filter;
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -134,18 +135,21 @@ led_driver u_led_driver	(
 						.iG_INT2(G_SENSOR_INT),            
 						.oLED(LED),
 						.oCLK(clock_intermediate),
-						.data(data_intermediate));
+						.data(data_intermediate_from_led_driver));
 					   	
 
-//File
-//Filter u_Filter(
-//					.clk(clock_intermediate),
-//					.acc_data(LED),
-//					.filtered_data(data_intermediate)
-//					);
+// File
+Filter u_Filter(
+					.clk(clock_intermediate),
+					.acc_data(data_intermediate_from_led_driver),
+					.filtered_data(data_intermediate_from_filter)
+					);
 
+					
+// Uart  Transmitter
 uart u_uart(
-				.data_in(data_intermediate),
+				.data_in(data_intermediate_from_led_driver),   // direct data 
+//				.data_in(data_intermediate_from_filter), 	 // filtered data
 				.wr_en(wr_en),
 				.clk_50m(CLOCK_50),
 				.Tx(Tx),

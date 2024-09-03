@@ -359,6 +359,33 @@ data[6] <= iDIG[8].DB_MAX_OUTPUT_PORT_TYPE
 data[7] <= iDIG[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
+|DE0_NANO_G_Sensor|Filter:u_Filter
+clk => filtered_data[0]~reg0.CLK
+clk => filtered_data[1]~reg0.CLK
+clk => filtered_data[2]~reg0.CLK
+clk => filtered_data[3]~reg0.CLK
+clk => filtered_data[4]~reg0.CLK
+clk => filtered_data[5]~reg0.CLK
+clk => filtered_data[6]~reg0.CLK
+clk => filtered_data[7]~reg0.CLK
+acc_data[0] => ~NO_FANOUT~
+acc_data[1] => ~NO_FANOUT~
+acc_data[2] => ~NO_FANOUT~
+acc_data[3] => ~NO_FANOUT~
+acc_data[4] => ~NO_FANOUT~
+acc_data[5] => ~NO_FANOUT~
+acc_data[6] => ~NO_FANOUT~
+acc_data[7] => ~NO_FANOUT~
+filtered_data[0] <= filtered_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[1] <= filtered_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[2] <= filtered_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[3] <= filtered_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[4] <= filtered_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[5] <= filtered_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[6] <= filtered_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+filtered_data[7] <= filtered_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |DE0_NANO_G_Sensor|uart:u_uart
 data_in[0] => data_in[0].IN1
 data_in[1] => data_in[1].IN1

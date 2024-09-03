@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE0_NANO_G_Sensor
-Sun Sep 01 23:27:55 2024
+Tue Sep 03 15:21:34 2024
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -26,7 +26,7 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  18. Parameter Settings for User Entity Instance: uart:u_uart|transmitter:uart_Tx
  19. altpll Parameter Settings by Entity Instance
  20. Port Connectivity Checks: "uart:u_uart|baudrate:uart_baud"
- 21. Port Connectivity Checks: "led_driver:u_led_driver"
+ 21. Port Connectivity Checks: "Filter:u_Filter"
  22. Port Connectivity Checks: "spi_ee_config:u_spi_ee_config"
  23. Post-Synthesis Netlist Statistics for Top Partition
  24. Elapsed Time Per Partition
@@ -57,7 +57,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Sep 01 23:27:55 2024       ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep 03 15:21:34 2024       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; DE0_NANO_G_Sensor                           ;
 ; Top-level Entity Name              ; DE0_NANO_G_Sensor                           ;
@@ -173,7 +173,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -192,6 +193,7 @@ refer to the applicable agreement for further details.
 ; v/led_driver.v                   ; yes             ; User Verilog HDL File        ; D:/Smoothing-Kernal-in-FPGA-Verilog/v/led_driver.v                       ;         ;
 ; DE0_NANO_G_Sensor.v              ; yes             ; User Verilog HDL File        ; D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v                  ;         ;
 ; v/spipll.v                       ; yes             ; User Wizard-Generated File   ; D:/Smoothing-Kernal-in-FPGA-Verilog/v/spipll.v                           ;         ;
+; Filter.v                         ; yes             ; User Verilog HDL File        ; D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v                             ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                 ; d:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf        ;         ;
 ; aglobal171.inc                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc    ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                 ; d:/intelfpga_lite/17.1/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
@@ -838,13 +840,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "led_driver:u_led_driver"                                                            ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; oCLK ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Filter:u_Filter"                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; filtered_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -890,7 +892,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -900,7 +902,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Sep 01 23:27:33 2024
+    Info: Processing started: Tue Sep 03 15:21:20 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE0_NANO_G_Sensor -c DE0_NANO_G_Sensor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -924,10 +926,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file de0_nan
 Info (12021): Found 1 design units, including 1 entities, in source file v/spipll.v
     Info (12023): Found entity 1: spipll File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spipll.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file filter.v
-    Info (12023): Found entity 1: Filter File: D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v Line: 1
+    Info (12023): Found entity 1: Filter File: D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v Line: 3
 Info (12127): Elaborating entity "DE0_NANO_G_Sensor" for the top level hierarchy
-Info (12128): Elaborating entity "reset_delay" for hierarchy "reset_delay:u_reset_delay" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 108
-Info (12128): Elaborating entity "spipll" for hierarchy "spipll:u_spipll" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 115
+Info (12128): Elaborating entity "reset_delay" for hierarchy "reset_delay:u_reset_delay" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 109
+Info (12128): Elaborating entity "spipll" for hierarchy "spipll:u_spipll" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 116
 Info (12128): Elaborating entity "altpll" for hierarchy "spipll:u_spipll|altpll:altpll_component" File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spipll.v Line: 103
 Info (12130): Elaborated megafunction instantiation "spipll:u_spipll|altpll:altpll_component" File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spipll.v Line: 103
 Info (12133): Instantiated megafunction "spipll:u_spipll|altpll:altpll_component" with the following parameter: File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spipll.v Line: 103
@@ -992,13 +994,17 @@ Info (12133): Instantiated megafunction "spipll:u_spipll|altpll:altpll_component
 Info (12021): Found 1 design units, including 1 entities, in source file db/spipll_altpll.v
     Info (12023): Found entity 1: spipll_altpll File: D:/Smoothing-Kernal-in-FPGA-Verilog/db/spipll_altpll.v Line: 29
 Info (12128): Elaborating entity "spipll_altpll" for hierarchy "spipll:u_spipll|altpll:altpll_component|spipll_altpll:auto_generated" File: d:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "spi_ee_config" for hierarchy "spi_ee_config:u_spi_ee_config" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 127
+Info (12128): Elaborating entity "spi_ee_config" for hierarchy "spi_ee_config:u_spi_ee_config" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 128
 Warning (10230): Verilog HDL assignment warning at spi_ee_config.v(113): truncated value with size 32 to match size of target (15) File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spi_ee_config.v Line: 113
 Info (12128): Elaborating entity "spi_controller" for hierarchy "spi_ee_config:u_spi_ee_config|spi_controller:u_spi_controller" File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/spi_ee_config.v Line: 60
-Info (12128): Elaborating entity "led_driver" for hierarchy "led_driver:u_led_driver" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 137
+Info (12128): Elaborating entity "led_driver" for hierarchy "led_driver:u_led_driver" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 138
 Warning (10036): Verilog HDL or VHDL warning at led_driver.v(18): object "int2_count_en" assigned a value but never read File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/led_driver.v Line: 18
 Warning (10230): Verilog HDL assignment warning at led_driver.v(58): truncated value with size 32 to match size of target (24) File: D:/Smoothing-Kernal-in-FPGA-Verilog/v/led_driver.v Line: 58
-Info (12128): Elaborating entity "uart" for hierarchy "uart:u_uart" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 153
+Info (12128): Elaborating entity "Filter" for hierarchy "Filter:u_Filter" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 146
+Warning (10855): Verilog HDL warning at Filter.v(15): initial value for variable buffer should be constant File: D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v Line: 15
+Warning (10230): Verilog HDL assignment warning at Filter.v(24): truncated value with size 32 to match size of target (8) File: D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v Line: 24
+Warning (10230): Verilog HDL assignment warning at Filter.v(32): truncated value with size 32 to match size of target (8) File: D:/Smoothing-Kernal-in-FPGA-Verilog/Filter.v Line: 32
+Info (12128): Elaborating entity "uart" for hierarchy "uart:u_uart" File: D:/Smoothing-Kernal-in-FPGA-Verilog/DE0_NANO_G_Sensor.v Line: 157
 Info (12128): Elaborating entity "baudrate" for hierarchy "uart:u_uart|baudrate:uart_baud" File: D:/Smoothing-Kernal-in-FPGA-Verilog/uart.v Line: 13
 Info (12128): Elaborating entity "transmitter" for hierarchy "uart:u_uart|transmitter:uart_Tx" File: D:/Smoothing-Kernal-in-FPGA-Verilog/uart.v Line: 21
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
@@ -1017,11 +1023,11 @@ Info (21057): Implemented 263 device resources after synthesis - the final resou
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 244 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4766 megabytes
-    Info: Processing ended: Sun Sep 01 23:27:55 2024
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:41
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Tue Sep 03 15:21:34 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+
