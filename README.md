@@ -1,5 +1,8 @@
 # Smoothing Kernel in FPGA Verilog
 
+## Implementation Up to now 
+https://github.com/user-attachments/assets/d4921b1c-4893-4645-8cdb-a17d9c9aec0e
+
 This project utilizes the built-in accelerometer on the DE0_Nano FPGA board to implement a hardware kernel that smoothens the data stream.
 
 [DE0_Nano FPGA Board Documentation and Resources](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=165&No=593&PartNo=4)  
@@ -19,6 +22,5 @@ Below is the functional block diagram illustrating how the implementation works:
 
 
 
-## Up to now Implementation
-https://github.com/user-attachments/assets/d4921b1c-4893-4645-8cdb-a17d9c9aec0e
+
 
