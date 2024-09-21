@@ -2,8 +2,9 @@ import serial
 
 # Configure UART
 ser = serial.Serial(
-    port='/dev/serial0',  # Raspberry Pi UART port
-    baudrate=115200,       # Baud rate (make sure it matches the transmitter)
+    # port='/dev/serial0',  # Raspberry Pi UART port
+    port = 'COM3', # Windows UART port
+    baudrate=115200,       # Baud rate 
     timeout=1              # Timeout for read operations
 )
 

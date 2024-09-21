@@ -62,6 +62,7 @@ module DE0_NANO_G_Sensor(
 	I2C_SCLK,
 	I2C_SDAT,
 	wr_en,
+	select
 );
 
 //=======================================================
@@ -90,6 +91,7 @@ inout 		          		I2C_SDAT;
 output Tx;
 output Tx_busy;
 input wr_en;
+input select;
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
@@ -99,6 +101,7 @@ wire	[15:0]  data_x;
 wire          clock_intermediate;
 wire  [7: 0]  data_intermediate_from_led_driver;
 wire  [7: 0]  data_intermediate_from_filter;
+reg  [7: 0]  data_in;
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -141,20 +144,38 @@ led_driver u_led_driver	(
 // File
 Filter u_Filter(
 					.clk(clock_intermediate),
+//					.rst(KEY[1]),
 					.acc_data(data_intermediate_from_led_driver),
 					.filtered_data(data_intermediate_from_filter)
 					);
 
 					
+//// Uart  Transmitter
+//uart u_uart(
+////    			.data_in(data_intermediate_from_led_driver),   // direct data 
+//				.data_in(data_intermediate_from_filter), 	 // filtered data
+//				.wr_en(wr_en),
+//				.clk_50m(CLOCK_50),
+//				.Tx(Tx),
+//				.Tx_busy(Tx_busy)
+//);
+
+
+always @ (posedge CLOCK_50) begin
+	if (select == 1) begin
+		data_in <= data_intermediate_from_led_driver;
+	end else begin
+		data_in <= data_intermediate_from_filter;
+	end
+end
+
 // Uart  Transmitter
 uart u_uart(
-				.data_in(data_intermediate_from_led_driver),   // direct data 
-//				.data_in(data_intermediate_from_filter), 	 // filtered data
+    			.data_in(data_in),
 				.wr_en(wr_en),
 				.clk_50m(CLOCK_50),
 				.Tx(Tx),
 				.Tx_busy(Tx_busy)
 );
-
 
 endmodule

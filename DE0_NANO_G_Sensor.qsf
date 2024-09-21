@@ -88,8 +88,10 @@ set_global_assignment -name SDC_FILE DE_NANO_G_Sensor.SDC
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name QIP_FILE v/spipll.qip
 set_global_assignment -name VERILOG_FILE Filter.v
-set_location_assignment PIN_B5 -to Tx
+set_location_assignment PIN_B4 -to Tx
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to Tx
 set_location_assignment PIN_M1 -to wr_en
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to wr_en
+set_location_assignment PIN_T8 -to select
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to select
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
